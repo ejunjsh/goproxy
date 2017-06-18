@@ -1,4 +1,4 @@
-package goproxy
+package main
 
 import (
 	"github.com/ejunjsh/goproxy/http"
