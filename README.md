@@ -1,5 +1,5 @@
 # goproxy
-support tcp,http proxy, more proxy mode are in the road.
+supports tcp,http, more proxy modes are on the road.
 
 ## run
 go get github.com/ejunjsh/goproxy
