@@ -14,6 +14,25 @@ type Proxy struct {
 	tcp.Proxy
 }
 
+func (httpproxy *Proxy) Run(){
+	l,err:= net.Listen("tcp",httpproxy.ProxyAdr)
+	if err!=nil{
+		log.Println(err)
+		return
+	}
+	httpproxy.Listener=l
+	fmt.Println("server listens on ",httpproxy.ProxyAdr)
+	for{
+		client,err:=httpproxy.Listener.Accept()
+		if err !=nil {
+			log.Println(err)
+			continue
+		}
+		go httpproxy.serve(client)
+	}
+
+}
+
 func (httpproxy *Proxy) serve(client net.Conn){
 	var b [1024]byte
 	n, err := client.Read(b[:])
