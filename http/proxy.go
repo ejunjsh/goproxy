@@ -8,6 +8,7 @@ import (
 	"bytes"
 
 	"github.com/ejunjsh/goproxy/tcp"
+	"net/url"
 )
 
 type Proxy struct {
@@ -42,6 +43,23 @@ func (httpproxy *Proxy) serve(client net.Conn){
 	}
 	var method, address string
 	fmt.Sscanf(string(b[:bytes.IndexByte(b[:], '\n')]), "%s%s", &method, &address)
+
+	if method != "CONNECT" {
+		u,err:=url.Parse(address)
+		if err!=nil{
+			log.Println(err)
+			return
+		}
+		if u.Scheme=="http" && u.Port()==""{
+			address=u.Host+":80"
+		} else if u.Scheme=="https" && u.Port()==""{
+			address=u.Host+":443"
+		} else {
+		    address=u.Host
+		}
+
+
+	}
 
 	server, err := net.Dial("tcp", address)
 	if err != nil {
