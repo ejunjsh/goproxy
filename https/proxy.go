@@ -1,4 +1,4 @@
-package http
+package https
 
 import (
 	"net"
@@ -11,11 +11,13 @@ import (
 
 type Proxy struct {
 	tcp.Proxy
+	Cert string
+	Key string
 }
 
 func (httpproxy *Proxy) Run(){
 	log.Println("server listens on ",httpproxy.ProxyAdr)
-	http.ListenAndServe(httpproxy.ProxyAdr,httpproxy)
+	http.ListenAndServeTLS(httpproxy.ProxyAdr,httpproxy.Cert,httpproxy.Key,httpproxy)
 }
 
 var transport=&http.Transport{

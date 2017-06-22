@@ -4,6 +4,7 @@ import (
 	"github.com/ejunjsh/goproxy/http"
 	"flag"
 	"github.com/ejunjsh/goproxy/tcp"
+	"github.com/ejunjsh/goproxy/https"
 )
 
 
@@ -17,6 +18,8 @@ func main(){
 		proxyAdr   string
 		proxyType  string
 		backendAdr string
+		cert string
+		key string
 	)
 	flag.StringVar(&proxyAdr, "addr", "", "Network host to listen on.")
 	flag.StringVar(&proxyAdr, "a", "", "Network host to listen on.")
@@ -24,6 +27,10 @@ func main(){
 	flag.StringVar(&proxyType, "t", "", "Network host to listen on.")
 	flag.StringVar(&backendAdr, "backend", "", "Network host to listen on.")
 	flag.StringVar(&backendAdr, "b", "", "Network host to listen on.")
+	flag.StringVar(&cert, "cert", "", "Network host to listen on.")
+	flag.StringVar(&cert, "c", "", "Network host to listen on.")
+	flag.StringVar(&key, "key", "", "Network host to listen on.")
+	flag.StringVar(&key, "k", "", "Network host to listen on.")
 
 	flag.Parse()
 
@@ -32,6 +39,8 @@ func main(){
 	switch proxyType {
 	case "http":
 		p=&http.Proxy{tcp.Proxy{ProxyAdr: proxyAdr}}
+	case "https":
+		p=&https.Proxy{tcp.Proxy{ProxyAdr: proxyAdr},cert,key}
 	case "tcp":
 		fallthrough
 	default:

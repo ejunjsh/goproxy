@@ -1,7 +1,7 @@
 # goproxy
 supports tcp,http, more proxy modes are on the road.
 
-## intall
+## install
 go get github.com/ejunjsh/goproxy
 
 
