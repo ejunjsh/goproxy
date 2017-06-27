@@ -49,7 +49,7 @@ func (tcpproxy *Proxy) serve(client net.Conn){
 			log.Println(err)
 			return
 		}
-		client.Write([]byte{0x00, 0x5a, 0x01, 0x02, 0x00, 0x00, 0x00, 0x00}) //response to client connection is done.
+		client.Write([]byte{0x00, 0x5a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}) //response to client connection is done.
 		go func() {
 			io.Copy(client, server)
 			server.Close()
