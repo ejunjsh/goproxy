@@ -33,7 +33,10 @@ func (tcpproxy *Proxy) Run(){
 }
 
 func (tcpproxy *Proxy) serve(client net.Conn){
-
+        if tcpproxy.BackendAdr==""{
+			log.Print("-b is requred.")
+			return
+		}
 		server,err:=net.Dial("tcp",tcpproxy.BackendAdr)
 		if err!=nil{
 			log.Println(err)
