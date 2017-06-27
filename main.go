@@ -5,8 +5,8 @@ import (
 	"flag"
 	"github.com/ejunjsh/goproxy/tcp"
 	"github.com/ejunjsh/goproxy/https"
-	"github.com/ejunjsh/goproxy/socket5"
-	"github.com/ejunjsh/goproxy/socket4"
+	"github.com/ejunjsh/goproxy/socks5"
+	"github.com/ejunjsh/goproxy/socks4"
 )
 
 
@@ -41,10 +41,10 @@ func main(){
 	switch proxyType {
 	case "http":
 		p=&http.Proxy{tcp.Proxy{ProxyAdr: proxyAdr}}
-	case "socket5":
-		p=&socket5.Proxy{tcp.Proxy{ProxyAdr: proxyAdr}}
-	case "socket4":
-		p=&socket4.Proxy{tcp.Proxy{ProxyAdr: proxyAdr}}
+	case "socks5":
+		p=&socks5.Proxy{tcp.Proxy{ProxyAdr: proxyAdr}}
+	case "socks4":
+		p=&socks4.Proxy{tcp.Proxy{ProxyAdr: proxyAdr}}
 	case "https":
 		p=&https.Proxy{tcp.Proxy{ProxyAdr: proxyAdr},cert,key}
 	case "tcp":

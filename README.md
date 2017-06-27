@@ -1,5 +1,5 @@
 # goproxy
-supports tcp,http, more proxy modes are on the road.
+supports tcp,http,socks4/5
 
 ## install
 go get github.com/ejunjsh/goproxy
@@ -12,7 +12,7 @@ $GOPATH/bin/goproxy -a :8090 -t tcp -b [backend_ip:port]
 $GOPATH/bin/goproxy -a :8090 -t http
 
 ## run with socket4
-$GOPATH/bin/goproxy -a :8090 -t socket4
+$GOPATH/bin/goproxy -a :8090 -t socks4
 
 ## run with socket5
-$GOPATH/bin/goproxy -a :8090 -t socket5
+$GOPATH/bin/goproxy -a :8090 -t socks5
