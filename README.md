@@ -17,7 +17,11 @@ $GOPATH/bin/goproxy -a :8090 -t tcp -b [backend_ip:port]
 ````
 $GOPATH/bin/goproxy -a :8090 -t http
 ````
-## run with socket4/5
+## run with socket4
 ````
-$GOPATH/bin/goproxy -a :8090 -t socks4/5
+$GOPATH/bin/goproxy -a :8090 -t socks4
+````
+## run with socket5
+````
+$GOPATH/bin/goproxy -a :8090 -t socks5
 ````
