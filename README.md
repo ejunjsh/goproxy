@@ -15,4 +15,9 @@ supports http,socks4/5 at the same time.
     usage: goproxy <proxy address>
     
 
+## docker
 
+    sudo docker run --net host  sjj050121014/goproxy:1.0 <proxy address>
+
+
+😄 enjoy
