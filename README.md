@@ -3,7 +3,7 @@
 
 [![baby-gopher](https://raw.githubusercontent.com/drnic/babygopher-site/gh-pages/images/babygopher-badge.png)](http://www.babygopher.org)
 
-supports http,socks4/5
+supports http,socks4/5 at the same time.
 
 ## install
 
