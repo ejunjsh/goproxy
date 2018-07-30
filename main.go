@@ -5,12 +5,6 @@ import (
 	"fmt"
 )
 
-
-type proxy interface {
-	Run()
-}
-
-
 func main(){
 
 	if len(os.Args)==1{

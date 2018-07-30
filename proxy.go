@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"strings"
 	"net/url"
+	"fmt"
 )
 
 
@@ -121,7 +122,8 @@ func serve(client net.Conn){
 				return
 			}
 			httpLogf("forward to %s\n",address)
-			server.Write(b[:n])
+
+			fmt.Fprint(server,s)
 
 			tunnel(client,server)
 		}
