@@ -20,8 +20,9 @@ if you run below command in your local or remote machine
 
     goproxy :8090
     
-then you can set your proxy address `<localhost or remote ip>:8090` on your browser or something that support socks4/5 or http proxy.` 
-    
+then you can set your proxy address `<localhost or remote ip>:8090` on your browser or something that support socks4/5 or http proxy.
+
+[![](http://idiotsky.top/images3/goproxy.png)](http://idiotsky.top/images3/goproxy.png)
 
 ## docker
 
