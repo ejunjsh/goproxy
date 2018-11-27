@@ -26,7 +26,7 @@ then you can set your proxy address `<localhost or remote ip>:8090` on your brow
 
 ## docker
 
-    sudo docker run --net host  sjj050121014/goproxy:1.0 <proxy address>
+    sudo docker run --net host  sjj050121014/goproxy:1.0 <listen address>
 
 
 😄 enjoy
