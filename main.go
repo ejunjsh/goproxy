@@ -1,15 +1,24 @@
 package main
 
 import (
-	"os"
 	"fmt"
+	"os"
+	"os/signal"
+	"syscall"
 )
 
-func main(){
+func main() {
 
-	if len(os.Args)==1{
+	if len(os.Args) == 1 {
 		fmt.Println("usage: goproxy <listen address>")
 		return
 	}
+
+	go func() {
+		c := make(chan os.Signal)
+		signal.Notify(c, syscall.SIGHUP)
+		<-c
+	}()
+
 	Run(os.Args[1])
 }
